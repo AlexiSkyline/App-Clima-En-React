@@ -28,3 +28,6 @@ export const Clima = ({ resultado }) => {
     );
 }
 
+Clima.propTypes = {
+    resultado: PropTypes.object.isRequired
+}
