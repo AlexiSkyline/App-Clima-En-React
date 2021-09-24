@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Clima } from './components/Clima';
+import { Error } from './components/Error';
 import { Formulario } from './components/Formulario';
 import { Header } from './components/Header';
 
@@ -13,7 +14,7 @@ function App() {
   
   const [ consulta, setConsulta ] = useState(false);
   const [ resultado, setResultado ] = useState({});
-  const [error, setError] = useState(false);
+  const [ error, setError ] = useState(false);
 
   const { ciudad, pais } = busqueda;
 
@@ -31,7 +32,7 @@ function App() {
         setConsulta( false );
 
         //TODO Detecta si hubo resultados correctos en la consulta.
-        if( resultado.cod === "404") {
+        if( resultadoAPI.cod === "404") {
           setError( true );
         } else {
           setError( false );
@@ -45,7 +46,7 @@ function App() {
 
   let componente; 
   if( error ) {
-    componente = <Error mensaje="No hay resultados"  />
+    componente = <Error mensaje="No hay resultados"/>
   } else {
     componente = <Clima resultado={ resultado } />
   }

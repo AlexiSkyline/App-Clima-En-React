@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 export const Clima = ({ resultado }) => {
 
@@ -26,3 +27,4 @@ export const Clima = ({ resultado }) => {
         </div>
     );
 }
+
