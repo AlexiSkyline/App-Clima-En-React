@@ -1,11 +1,6 @@
 import React, { useState } from 'react'
 
-export const Formulario = () => {
-
-    const [ busqueda, setBusqueda ] = useState({
-        ciudad: '',
-        pais: ''
-    });
+export const Formulario = ({ busqueda, setBusqueda, setConsulta }) => {
     
     const [ error, setError ] = useState(false);
     
@@ -14,7 +9,7 @@ export const Formulario = () => {
     const handleChange = ( e ) => {
         setBusqueda({
             ...busqueda,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value.toLowerCase()
         });
     }
 
@@ -28,7 +23,10 @@ export const Formulario = () => {
 
         setError( false );
 
+        setConsulta( true );
+
     }
+    
     return (
         <form 
             onSubmit={ handleSubmit }
